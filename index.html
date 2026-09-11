@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منيو مطعم الأسرة المركزية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الهيدر والشعار -->
+    <header class="main-header">
+        <div class="logo-container">
+            <h1 class="restaurant-name">مطعم الأسرة المركزية</h1>
+            <p class="slogan">الأصالة، حضارة الماضي وجودة المستقبل</p>
+        </div>
+        
+        <!-- شريط البحث -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="ابحث عن طبق...">
+        </div>
+    </header>
+
+    <!-- شريط التبويبات للتنقل بين الأقسام -->
+    <nav class="categories-nav">
+        <button class="nav-btn active" onclick="filterCategory('all')">الكل</button>
+        <button class="nav-btn" onclick="filterCategory('main')">الرئيسي</button>
+        <button class="nav-btn" onclick="filterCategory('hot')">الساخن</button>
+        <button class="nav-btn" onclick="filterCategory('grill')">المشاوي</button>
+        <button class="nav-btn" onclick="filterCategory('sandwiches')">السندويشات</button>
+        <button class="nav-btn" onclick="filterCategory('salads')">السلطات</button>
+        <button class="nav-btn" onclick="filterCategory('drinks')">المشروبات</button>
+        <button class="nav-btn" onclick="filterCategory('extras')">الإضافات</button>
+    </nav>
+
+    <!-- حاوية عرض الأطباق -->
+    <main class="menu-container" id="menuContainer">
+        <!-- يتم توليد الكروت هنا ديناميكياً عن طريق JavaScript -->
+    </main>
+
+    <script src="script.js"></script>
+    <!-- زر السلة العائم للموبايل والشاشات -->
+<div class="cart-floating-btn" id="cartBtn" onclick="toggleCart()">
+    🛒 السلة (<span id="cartCount">0</span>)
+</div>
+
+<!-- نافذة السلة المنسدلة -->
+<div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+        <div class="cart-header">
+            <h2>سلة الطلبات</h2>
+            <button class="close-btn" onclick="toggleCart()">✕</button>
+        </div>
+        
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- الأصناف المضافة بتظهر هون -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>المجموع الإجمالي:</span>
+                <span id="totalAmount">0 د.أ</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
