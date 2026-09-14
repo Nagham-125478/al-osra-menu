@@ -47,8 +47,7 @@ body {
     font-size: 1rem;
     opacity: 0.9;
     font-weight: 300;
-    margin-bottom: 100px; /* زيادة المسافة الفاصلة قبل السيرش */
-}
+ }
 
 .search-box {
     max-width: 500px;
@@ -64,8 +63,7 @@ body {
     outline: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-     margin: 20px auto 0; /* تم زيادة المسافة العلوية إلى 20px */
-}
+ }
 
 
 .search-box input:focus {
