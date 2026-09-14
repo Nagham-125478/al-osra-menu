@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منيو مطعم الأسرة </title>
+    <title>منيو مطعم الأسرة</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- الهيدر والشعار -->
+    <!-- الهيدر وشريط البحث -->
     <header class="main-header">
         <div class="logo-container">
-            <h1 class="restaurant-name">مطعم الأسرة </h1>
-            <p class="slogan">الأصالة، حضارة الماضي وجودة المستقبل</p>
+            <h1 class="restaurant-name">مطعم الأسرة</h1>
+            <p class="slogan">أطيب الأكلات الشعبية والمشاوي</p>
         </div>
         
         <!-- شريط البحث -->
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="ابحث عن طبق...">
+            <input type="text" id="searchInput" placeholder="ابحث عن طبق أو مشروب...">
         </div>
     </header>
 
     <!-- شريط التبويبات للتنقل بين الأقسام -->
     <nav class="categories-nav">
-        <button class="nav-btn active" onclick="filterCategory('all')">الكل</button>
-        <button class="nav-btn" onclick="filterCategory('main')">الرئيسي</button>
-        <button class="nav-btn" onclick="filterCategory('hot')">الساخن</button>
-        <button class="nav-btn" onclick="filterCategory('grill')">المشاوي</button>
-        <button class="nav-btn" onclick="filterCategory('sandwiches')">السندويشات</button>
-        <button class="nav-btn" onclick="filterCategory('salads')">السلطات</button>
-        <button class="nav-btn" onclick="filterCategory('drinks')">المشروبات</button>
-        <button class="nav-btn" onclick="filterCategory('extras')">الإضافات</button>
+        <button class="nav-btn active" onclick="filterCategory('all', event)">الكل</button>
+        <button class="nav-btn" onclick="filterCategory('main', event)">الرئيسي</button>
+        <button class="nav-btn" onclick="filterCategory('hot', event)">الساخن</button>
+        <button class="nav-btn" onclick="filterCategory('grill', event)">المشاوي</button>
+        <button class="nav-btn" onclick="filterCategory('sandwiches', event)">السندويشات</button>
+        <button class="nav-btn" onclick="filterCategory('salads', event)">السلطات</button>
+        <button class="nav-btn" onclick="filterCategory('drinks', event)">المشروبات</button>
+        <button class="nav-btn" onclick="filterCategory('extras', event)">الإضافات</button>
     </nav>
 
     <!-- حاوية عرض الأطباق -->
@@ -38,31 +38,36 @@
         <!-- يتم توليد الكروت هنا ديناميكياً عن طريق JavaScript -->
     </main>
 
-    <script src="script.js"></script>
-    <!-- زر السلة العائم للموبايل والشاشات -->
-<div class="cart-floating-btn" id="cartBtn" onclick="toggleCart()">
-    🛒 السلة (<span id="cartCount">0</span>)
-</div>
+    <!-- زر السلة العائم -->
+    <div class="cart-floating-btn" id="cartBtn" onclick="toggleCart()">
+        🛒 السلة (<span id="cartCount">0</span>)
+    </div>
 
-<!-- نافذة السلة المنسدلة -->
-<div class="cart-modal" id="cartModal">
-    <div class="cart-content">
-        <div class="cart-header">
-            <h2>سلة الطلبات</h2>
-            <button class="close-btn" onclick="toggleCart()">✕</button>
-        </div>
-        
-        <div class="cart-items" id="cartItemsContainer">
-            <!-- الأصناف المضافة بتظهر هون -->
-        </div>
+    <!-- نافذة السلة المنسدلة -->
+    <div class="cart-modal" id="cartModal" onclick="closeCartOnBackdrop(event)">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>🛒 سلة الطلبات</h2>
+                <button class="close-btn" onclick="toggleCart()">✕</button>
+            </div>
+            
+            <div class="cart-items" id="cartItemsContainer">
+                <!-- الأصناف المضافة تظهر هنا -->
+            </div>
 
-        <div class="cart-footer">
-            <div class="total-price">
-                <span>المجموع الإجمالي:</span>
-                <span id="totalAmount">0 د.أ</span>
+            <div class="cart-footer">
+                <div class="total-price">
+                    <span>المجموع الإجمالي:</span>
+                    <span id="totalAmount">0.00 د.أ</span>
+                </div>
+                <!-- زر إرسال الطلب عبر الواتساب -->
+                <button class="whatsapp-send-btn" onclick="sendOrderToWhatsApp()">
+                    💬 إرسال الطلب عبر الواتساب
+                </button>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
